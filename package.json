@@ -16,6 +16,10 @@
       {
         "command": "sidenotes.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "sidenotes.testPanel",
+        "title": "Test Panel"
       }
     ]
   },
