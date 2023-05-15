@@ -17,25 +17,30 @@ export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('sidenotes.helloWorld', () => {
         // The code you place here will be executed every time your command is executed
         // Display a message box to the user
+        console.log("activate.helloworldcallback.1 NOT TRIGGERED");
         vscode.window.showInformationMessage('Hello World from sidenotes!');
         
     });
 
-    const testPanel = vscode.commands.registerCommand('sidenotes.testPanel', testPanelCallback);
+    const testPanel = vscode.commands.registerCommand('sidenotes.testPanel', () => {
+        vscode.window.showInformationMessage("activate.testpanelcallback.1 triggered");
+        const panel = vscode.window.createWebviewPanel(
+            'testPanel',
+            'Test Panel',
+            vscode.ViewColumn.One,
+            {}
+          );
+        const b:Board = new Board();
+        console.log("activate.testpanelcallback.2 board web view content", b.getWebViewContent());
+        panel.webview.html = b.getWebViewContent();
+    });
     
     
     context.subscriptions.push(disposable);
+    context.subscriptions.push(testPanel);
 }
 
 function testPanelCallback(): void {
-    const panel = vscode.window.createWebviewPanel(
-        'testPanel',
-        'Test Panel',
-        vscode.ViewColumn.One,
-        {}
-      );
-    const b:Board = new Board();
-    panel.webview.html = b.getWebViewContent();
 }
 
 

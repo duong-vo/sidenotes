@@ -1,17 +1,17 @@
 import Konva from 'konva';
 
 class Board {
-    private stage:Konva.Stage;
-    constructor() {
-        this.stage = new Konva.Stage({
-            container: 'container',
-            width: 100,
-            height: 100,
-    });
-    }
+    // private stage:Konva.Stage;
+    // constructor() {
+    //     this.stage = new Konva.Stage({
+    //         container: 'container',
+    //         width: 100,
+    //         height: 100,
+    // });
+    // }
 
     public getWebViewContent() {
-        console.log("Board.ts.getWebViewContent.1: getWebView triggered");
+        // console.log("Board.ts.getWebViewContent.1: getWebView triggered");
         return `<!DOCTYPE html>
         <html lang="en">
         <head>
